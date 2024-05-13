@@ -1,48 +1,23 @@
-#include "StackArray.h"
-#include "StackList.h"
-#include "Test.h"
+#include "funkcje.h"
+#include "algorytmy_sortowania.h"
 #include <iostream>
-using namespace std;
+#include <vector>
 
 int main() {
-//    cout<<"Stos oparty na tablicy:"<<endl;
-//    StackArray sa(10);
-//    sa.push(5);
-//    sa.push(6);
-//    sa.push(7);
-//    cout<<endl<<"Elementy stosu:"<<endl;
-//    sa.display();
-//    cout<<"Rozmiar stosu: "<<sa.size()<<endl;
-//    cout<<"Wierzcholek stosu: "<<sa.top()<<endl;
-//    cout<<"Elementy stosu po usunieciu wierzcholka:"<<endl;
-//    sa.pop();
-//    sa.display();
-//
-//
-//    cout<<endl<<"Stos oparty na liscie:"<<endl;
-//    StackList sl;
-//    sl.push(3);
-//    sl.push(2);
-//    sl.push(1);
-//    cout<<endl<<"Elementy stosu:"<<endl;
-//    sl.display();
-//    cout<<"Rozmiar stosu: "<<sa.size()<<endl;
-//    cout<<"Wierzcholek stosu: "<<sa.top()<<endl;
-//    cout<<"Elementy stosu po usunieciu wierzcholka:"<<endl;
-//    sl.pop();
-//    sl.display();
+    std::vector<Ranking> filmy;
+    std::string nazwa_pliku = "C:\\Users\\natal\\OneDrive\\Pulpit\\projekt2_dane.csv";
+    int n = 1000000;
+    wczytaj_i_filtruj(filmy, nazwa_pliku, n);
 
 
-
-    //Testy wydajności
-    cout << "Test wydajnosci:" << endl;
-    Test::testStackArray(100);
-    Test::testStackArray(1000);
-    Test::testStackArray(100000);
-    cout<<endl;
-    Test::testStackList(100);
-    Test::testStackList(1000);
-    Test::testStackList(100000);
+    testQuickSort(filmy);
+    //testMergeSort(filmy);
+//      testBucketSort(filmy);
+    //wyswietl(filmy);
+    mediana(filmy);
+    std::cout << "Mediana wynosi: " << mediana(filmy) << std::endl;
+    srednia(filmy);
+    std::cout << "Srednia wynosi: " << srednia(filmy) << std::endl;
 
     return 0;
 }
